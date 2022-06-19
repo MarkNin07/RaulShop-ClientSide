@@ -32,7 +32,8 @@ const BillTable = () => {
                     <th>Client Name</th>
                     <th>SalesPerson</th>                      
                     <th>Total Bill</th>
-                    <th>Products</th>                   
+                    <th>Product / Quantity</th>                   
+                  
                 </tr>
             </thead>
             {!error && getBills.map((bill) => <BillsTableInfo key={bill.billId} props={bill} /> )}

@@ -6,7 +6,6 @@ import { selectReceiptsFetchError, selectReceiptsState, selectReceiptsStatus } f
 import { useAppDispatch } from '../../state/store';
 import ReceiptsTableInfo from './ReceiptsTableInfo';
 
-
 const ReceiptsTable = () => {
 
     const dispatch = useAppDispatch();
