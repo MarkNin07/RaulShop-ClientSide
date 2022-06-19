@@ -11,12 +11,12 @@ const ProductsTableInfo : React.FC<ProductTypeProps> = ({props}) => {
           <tr>
               <td>{props.productId}</td>
               <td>{props.productName}</td>
-              <th>{props.price}</th>                      
-              <th>{props.description}</th>                      
-              <th>{props.minProdAmount}</th>                      
-              <th>{props.maxProdAmount}</th>                      
-              <th>{props.unitsAvailable}</th>                      
-              <th>{props.stockist.stockistName}</th>                    
+              <td>{props.price}</td>                      
+              <td>{props.description}</td>                      
+              <td>{props.minProdAmount}</td>                      
+              <td>{props.maxProdAmount}</td>                      
+              <td>{props.unitsAvailable}</td>                      
+              <td>{props.stockist.stockistName}</td>                    
           </tr>
       </tbody>
   );

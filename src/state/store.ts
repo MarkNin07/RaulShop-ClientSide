@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import stockistReducer from '../state/slices/ProviderSlice'
 import productReducer from '../state/slices/ProductSlice'
+import billReducer from '../state/slices/BillSlice'
 const store = configureStore(
     {
         reducer: {
             stockist: stockistReducer,
-            product: productReducer
+            product: productReducer,
+            bill: billReducer
         }
 
     }
