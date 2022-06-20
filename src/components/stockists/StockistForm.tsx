@@ -34,7 +34,6 @@ const StockistForm: React.FC<IStockistFormProps> = (props) => {
                 stockistPersonalId,
                 phoneNumber
             }
-            console.log(newStockist);
             
             dispatch(createStockist(newStockist))
             setStockistName('')

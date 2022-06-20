@@ -56,7 +56,6 @@ const stockistSlice = createSlice(
             builder.addCase(createStockist.fulfilled, (state, action) => 
             {
                 state.status = possibleStatus.COMPLETED;
-                console.log(action.payload);                
                 state.stockists.push(action.payload)
             })
             builder.addCase(createStockist.rejected, (state, action) => 

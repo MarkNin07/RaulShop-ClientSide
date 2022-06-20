@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { stockistType } from './ProviderSlice';
 import getAllProducts from '../../actions/products/GetAllProducts';
 import { RootState } from '../store';
+import createProduct from '../../actions/products/PostNewProduct';
 
 type productType = {
     productId: string,
@@ -48,6 +49,22 @@ const productSlice = createSlice({
         {
             state.status = possibleStatus.FAILED;
             state.error = "Your request failed"
+            state.products = []
+        })
+        //Post
+        builder.addCase(createProduct.pending, (state, action) => 
+        {
+            state.status = possibleStatus.PENDING;
+        })
+        builder.addCase(createProduct.fulfilled, (state, action) => 
+        {
+            state.status = possibleStatus.COMPLETED;
+            state.products.push(action.payload)
+        })
+        builder.addCase(createProduct.rejected, (state, action) => 
+        {
+            state.status = possibleStatus.FAILED;
+            state.error = "Request failed";
             state.products = []
         })
     }
