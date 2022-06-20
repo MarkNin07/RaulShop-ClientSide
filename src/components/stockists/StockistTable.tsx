@@ -6,8 +6,11 @@ import { selectStockistsFetchError, selectStockistsState, selectStockistsStatus 
 import { useAppDispatch } from '../../state/store';
 import StockistTableInfo from './StockistTableInfo';
 
+interface IStockistFormProps {
+    
+}
 
-const StockistTable = () => {
+const StockistTable : React.FC<IStockistFormProps> = () => {
     
     const dispatch = useAppDispatch();
 
@@ -32,7 +35,8 @@ const StockistTable = () => {
                     <th>Phone Number</th>                      
                 </tr>
             </thead>
-            {!error && getStockist.map((stockist) => <StockistTableInfo key={stockist.stockistId} props={stockist} /> )} 
+            {!error && getStockist.map((stockist) =>
+             <StockistTableInfo key={stockist.stockistId} props={stockist} /> )} 
         </table>
     </div>
   )

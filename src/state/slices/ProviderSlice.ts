@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import getAllStockists from "../../actions/stockists/GetAllStockists"
+import createStockist from "../../actions/stockists/PostNewStockist"
 import { possibleStatus } from "../../configuration/PossibleStatus"
 import { RootState } from "../store"
 
@@ -45,6 +46,23 @@ const stockistSlice = createSlice(
             {
                 state.status = possibleStatus.FAILED;
                 state.error = "Your request failed"
+                state.stockists = []
+            })
+            //Post
+            builder.addCase(createStockist.pending, (state, action) => 
+            {
+                state.status = possibleStatus.PENDING;
+            })
+            builder.addCase(createStockist.fulfilled, (state, action) => 
+            {
+                state.status = possibleStatus.COMPLETED;
+                console.log(action.payload);                
+                state.stockists.push(action.payload)
+            })
+            builder.addCase(createStockist.rejected, (state, action) => 
+            {
+                state.status = possibleStatus.FAILED;
+                state.error = "Request failed";
                 state.stockists = []
             })
         }
