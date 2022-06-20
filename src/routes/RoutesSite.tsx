@@ -12,12 +12,12 @@ const RoutesSite = () => {
   return (
     <div>
       <nav>
-        <Link to="/">Create Stockist</Link>
-        <Link to="/stockists">Stockists</Link>
-        <Link to="/create/product">Create Product</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/bills">Bills</Link>
-        <Link to="/receipts">Receipts</Link>
+        <Link to="/"  className="link">Create Stockist</Link>
+        <Link to="/stockists" className="link">Stockists</Link>
+        <Link to="/create/product" className="link">Create Product</Link>
+        <Link to="/products" className="link">Products</Link>
+        <Link to="/bills" className="link">Bills</Link>
+        <Link to="/receipts" className="link">Receipts</Link>
       </nav>
       <nav>
         <Routes>

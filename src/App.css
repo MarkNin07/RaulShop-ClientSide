@@ -24,6 +24,15 @@ tr:hover {
   background-color: rgb(159, 168, 248);
 }
 
+input[type="text"] {
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.link {
+  margin: 1rem;
+}
+
 .App {
   text-align: center;
 }

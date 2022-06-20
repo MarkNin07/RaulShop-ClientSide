@@ -4,6 +4,7 @@ import { stockistType } from './ProviderSlice';
 import getAllProducts from '../../actions/products/GetAllProducts';
 import { RootState } from '../store';
 import createProduct from '../../actions/products/PostNewProduct';
+import deleteProduct from '../../actions/products/DeleteProduct';
 
 type productType = {
     productId: string,
@@ -35,7 +36,7 @@ const productSlice = createSlice({
 
     },
     extraReducers : (builder) => {
-        //Get
+        //GET
         builder.addCase(getAllProducts.pending, (state, action) => 
         {
             state.status = possibleStatus.PENDING;
@@ -51,7 +52,7 @@ const productSlice = createSlice({
             state.error = "Your request failed"
             state.products = []
         })
-        //Post
+        //POST
         builder.addCase(createProduct.pending, (state, action) => 
         {
             state.status = possibleStatus.PENDING;
@@ -66,6 +67,24 @@ const productSlice = createSlice({
             state.status = possibleStatus.FAILED;
             state.error = "Request failed";
             state.products = []
+        })
+        //DELETE
+        builder.addCase(deleteProduct.pending, (state, action) => 
+        {
+            state.status = possibleStatus.PENDING
+        })
+        builder.addCase(deleteProduct.fulfilled, (state, action) => 
+        {
+            state.status = possibleStatus.COMPLETED
+            if(action.payload.deleted){
+                state.products = state.products.filter((product) => 
+                    product.productId !== action.payload.productId)
+            }
+        })
+        builder.addCase(deleteProduct.rejected, (state, action) => 
+        {
+            state.status = possibleStatus.FAILED
+            state.error = "Something was wrong"
         })
     }
 })

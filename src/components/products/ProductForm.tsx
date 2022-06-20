@@ -76,31 +76,32 @@ const ProductForm: React.FC<IProductFormProps> = (props) => {
           <form onSubmit={addProd}>
               <label>Product Name: </label>
               <input type="text" value={productName} onChange={onChangeProdName} />
-
+              <br/>
               <label>Price: </label>
               <input type="number" value={price} onChange={(e) => setPrice(parseInt(e.target.value))}/>
-
+              <br/>
               <label>Description: </label>
               <input type="text" value={description} onChange={onChangeDescription} />
-
+              <br/>
               <label>Minimum product amount: </label>
               <input type="number" value={minProdAmount}
                onChange={(e) => setMinProdAmount(parseInt(e.target.value))}/>
-
+                <br/>
               <label>Maximum product amount: </label>
               <input type="number" value={maxProdAmount} 
                onChange={(e) => setMaxProdAmount(parseInt(e.target.value))}/>
-
+                <br/>
               <label>Units available: </label>
               <input type="number" value={unitsAvailable} 
                onChange={(e) => setUnitsAvailable(parseInt(e.target.value))}/>
-
+                <br/>
                <label>Select a Provider</label>
                <select name="stockists" id="stockists" onChange={(e) => selectStockistOnList(e)}>
                    <option>Select a Provider</option>
                    {getStockists.map((stockist) => 
                         <option key={stockist.stockistId} value={stockist.stockistId}>{stockist.stockistName}</option>)}
                </select>
+               <br/>
                <input type="submit" value="Submit"/>
           </form>
       </div>
