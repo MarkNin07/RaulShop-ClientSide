@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { urlApi } from "../../configuration/ApiURL";
 import { stockistType } from "../../state/slices/ProviderSlice";
 
-const createNewStockist = urlApi + "/create/stockist"
+const createNewStockist = urlApi + "/create/stockist";
 
 const createStockist = createAsyncThunk('createStockist', async (stockist: stockistType) =>
 {
