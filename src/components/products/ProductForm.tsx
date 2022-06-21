@@ -43,6 +43,8 @@ const ProductForm: React.FC<IProductFormProps> = (props) => {
                 productId: nanoid(),
                 productName: productName,
                 price: price,
+                sold: 0,
+                stock: 0,
                 description: description,
                 minProdAmount: minProdAmount,
                 maxProdAmount: maxProdAmount,

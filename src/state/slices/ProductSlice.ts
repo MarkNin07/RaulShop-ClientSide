@@ -5,11 +5,13 @@ import getAllProducts from '../../actions/products/GetAllProducts';
 import { RootState } from '../store';
 import createProduct from '../../actions/products/PostNewProduct';
 import deleteProduct from '../../actions/products/DeleteProduct';
+import updateProduct from '../../actions/products/PutProduct';
 
 type productType = {
     productId: string,
     productName: string,
     price: number,
+    sold: number,
     description: string,
     minProdAmount: number,
     maxProdAmount: number,
@@ -85,6 +87,23 @@ const productSlice = createSlice({
         {
             state.status = possibleStatus.FAILED
             state.error = "Something was wrong"
+        })
+        //PUT
+        builder.addCase(updateProduct.pending, (state, action) => 
+        {
+            state.status = possibleStatus.PENDING
+        })
+        builder.addCase(updateProduct.fulfilled, (state, action) => 
+        {
+            state.status = possibleStatus.COMPLETED
+            let productUpdated = state.products.filter((prod) => prod.productId === action.payload.productId)[0];
+            let positionProductUpdate = state.products.indexOf(productUpdated)
+            state.products[positionProductUpdate] = action.payload
+        })
+        builder.addCase(updateProduct.rejected, (state, action) => 
+        {
+            state.status = possibleStatus.FAILED
+            state.error = "Something went wrong"
         })
     }
 })

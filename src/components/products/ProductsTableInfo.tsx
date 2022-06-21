@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import deleteProduct from '../../actions/products/DeleteProduct';
 import { productType } from '../../state/slices/ProductSlice';
 import { useAppDispatch } from '../../state/store';
@@ -25,7 +26,12 @@ const ProductsTableInfo : React.FC<ProductTypeProps> = ({props}) => {
             <td>{props.minProdAmount}</td>                      
             <td>{props.maxProdAmount}</td>                      
             <td>{props.unitsAvailable}</td>                      
-            <td>{props.stockist.stockistName}</td>  
+            <td>{props.stockist.stockistName}</td>
+            <td>
+                <Link to="/productEdit" state={{updProd:props}}>
+                    <button>Edit</button>
+                </Link>
+            </td>  
             <td>
                 <button onClick={() => onDeleteProd(props)}>Delete</button>
             </td>                  

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import createNewBill from '../../actions/bills/CreateBill';
 import getAllBills from '../../actions/bills/GetAllBills';
 import { possibleStatus } from '../../configuration/PossibleStatus';
 import { RootState } from '../store';
@@ -47,8 +48,22 @@ const billSlice = createSlice({
             state.error =  "Your request failed"
             state.bills = [] 
         })
-        
-        
+        //Post
+        builder.addCase(createNewBill.pending, (state, action) => 
+        {
+            state.status = possibleStatus.PENDING
+        })
+        builder.addCase(createNewBill.fulfilled, (state, action) => 
+        {
+            state.status = possibleStatus.COMPLETED
+            state.bills.push(action.payload)
+        })
+        builder.addCase(createNewBill.rejected, (state, action) => 
+        {
+            state.status = possibleStatus.FAILED
+            state.error = "Your request failed"
+            state.bills = []
+        })        
     }
 })
 
