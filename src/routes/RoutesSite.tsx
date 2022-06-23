@@ -7,6 +7,8 @@ import ReceiptsList from '../pages/receipts/ReceiptsList'
 import StockistsList from '../pages/stockist/StockistsList'
 import AddProduct from '../pages/product/AddProduct'
 import EditProduct from '../components/products/EditProduct'
+import ProductOrder from '../pages/bills/ProductOrder'
+import SubmitBill from '../pages/bills/SubmitBill'
 
 
 const RoutesSite = () => {
@@ -17,9 +19,10 @@ const RoutesSite = () => {
         <Link to="/stockists" className="link">Stockists</Link>
         <Link to="/create/product" className="link">Create Product</Link>
         <Link to="/products" className="link">Products</Link>
-        {/* <Link to="/productEdit" className="link">Edit Product</Link> */}
+        <Link to="/order/product" className="link">Order</Link>
         <Link to="/bills" className="link">Bills</Link>
         <Link to="/receipts" className="link">Receipts</Link>
+
       </nav>
       <nav>
         <Routes>
@@ -28,7 +31,9 @@ const RoutesSite = () => {
           <Route path="/create/product" element = {< AddProduct />} />
           <Route path="/products" element = {< ProductsList />} />
           <Route path="/productEdit" element = {< EditProduct />} />
+          <Route path="/order/product" element = {< SubmitBill />} />
           <Route path="/bills" element = {< BillsList />} />
+          <Route path="/order" element = {<ProductOrder/>} />
           <Route path="/receipts" element = {< ReceiptsList />} />
         </Routes>
       </nav>

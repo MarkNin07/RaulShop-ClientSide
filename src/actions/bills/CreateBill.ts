@@ -13,7 +13,10 @@ const createNewBill = createAsyncThunk('createNewBill', async(bill:billType) =>
         },
         body: JSON.stringify(bill)
     })
-    return (await response.json()) as billType
+    if(response.ok){
+        return bill as billType
+    }
+    //return (await response.json()) as billType
 })
 
 export default createNewBill

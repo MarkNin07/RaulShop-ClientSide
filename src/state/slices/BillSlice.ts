@@ -56,7 +56,7 @@ const billSlice = createSlice({
         builder.addCase(createNewBill.fulfilled, (state, action) => 
         {
             state.status = possibleStatus.COMPLETED
-            state.bills.push(action.payload)
+            state.bills.push(action.payload as billType) 
         })
         builder.addCase(createNewBill.rejected, (state, action) => 
         {

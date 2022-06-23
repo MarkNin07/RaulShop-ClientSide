@@ -20,7 +20,7 @@ const BillsTableInfo: React.FC<BillTypeProps> = ({props}) => {
                         {props.products.map((product) => {
                             return <tr key={product.productId}>
                                 <td>{product.productName}</td>
-                                <td>{product.price}</td>                            
+                                <td>{product.sold}</td>                            
                             </tr>
                         })}
                     </tbody>
