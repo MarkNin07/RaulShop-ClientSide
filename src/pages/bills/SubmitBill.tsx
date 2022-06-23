@@ -1,9 +1,21 @@
+import { useEffect } from "react"
+import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import ProductListTableFiltered from "../../components/products/ProductListTableFiltered"
+import { RootState } from "../../state/store"
 
 const SubmitBill = () => {
 
-    let navigate = useNavigate()
+    const {user} = useSelector((state:RootState) => state.login)
+
+    const navigate = useNavigate()
+  
+    useEffect(() => {
+      if(user === false){
+        navigate('/')
+      }
+    }, [])
+
 
     return (
         <div>
