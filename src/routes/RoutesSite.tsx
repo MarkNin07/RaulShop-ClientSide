@@ -11,9 +11,18 @@ import ProductOrder from '../pages/bills/ProductOrder'
 import SubmitBill from '../pages/bills/SubmitBill'
 import Login from '../components/login/Login'
 import SignIn from '../components/login/SignIn'
+import { useDispatch } from 'react-redux'
+import { logoutInReducer } from '../state/slices/LoginSlice'
 
 
 const RoutesSite = () => {
+
+  const dispatch = useDispatch()
+
+  const logOut = () => {
+    dispatch(logoutInReducer())
+  }
+
   return (
     <div>
       <nav>
@@ -24,6 +33,7 @@ const RoutesSite = () => {
         <Link to="/order/product" className="link">Order</Link>
         <Link to="/bills" className="link">Bills</Link>
         <Link to="/receipts" className="link">Receipts</Link>
+        <Link to="/" onClick={logOut}>Log Out</Link>
 
       </nav>
       <nav>
