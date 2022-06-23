@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebaseConfig';
 import { loginInReducer } from '../../state/slices/LoginSlice';
+import LoginWithGoogle from './LoginWithGoogle';
 
 interface ILoginProps {
 }
@@ -66,6 +67,7 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
               <button onClick={(e) => sendLogin(e)}>Login</button>
           </form>
           <button onClick={goToSignUp}>Sign up</button>
+          <LoginWithGoogle/>
       </div>
   );
 };
