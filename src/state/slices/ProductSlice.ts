@@ -12,6 +12,7 @@ type productType = {
     productName: string,
     price: number,
     sold: number,
+    stock ? : number,
     description: string,
     minProdAmount: number,
     maxProdAmount: number,

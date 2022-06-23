@@ -9,13 +9,15 @@ import AddProduct from '../pages/product/AddProduct'
 import EditProduct from '../components/products/EditProduct'
 import ProductOrder from '../pages/bills/ProductOrder'
 import SubmitBill from '../pages/bills/SubmitBill'
+import Login from '../components/login/Login'
+import SignIn from '../components/login/SignIn'
 
 
 const RoutesSite = () => {
   return (
     <div>
       <nav>
-        <Link to="/"  className="link">Create Stockist</Link>
+        <Link to="/stockist"  className="link">Create Stockist</Link>
         <Link to="/stockists" className="link">Stockists</Link>
         <Link to="/create/product" className="link">Create Product</Link>
         <Link to="/products" className="link">Products</Link>
@@ -26,7 +28,9 @@ const RoutesSite = () => {
       </nav>
       <nav>
         <Routes>
-          <Route path="/" element={< AddProvider />} />
+          <Route path="/" element={<Login/>} />
+          <Route  path="/signUp" element={<SignIn/>} />
+          <Route path="/stockist" element={< AddProvider />} />
           <Route path="/stockists" element = {< StockistsList />} />
           <Route path="/create/product" element = {< AddProduct />} />
           <Route path="/products" element = {< ProductsList />} />

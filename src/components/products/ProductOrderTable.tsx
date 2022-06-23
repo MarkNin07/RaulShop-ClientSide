@@ -9,7 +9,7 @@ const ProductOrderTable: React.FC<IOrderTableProps> = ({props}) => {
   return (
       <tbody>
           {props.productListSale.map((prod) => {
-              return <tr>
+              return <tr key={prod.productId}>
                   <td>{prod.productName}</td>
                   <td>{prod.price}</td>
                   <td>{prod.sold}</td>
