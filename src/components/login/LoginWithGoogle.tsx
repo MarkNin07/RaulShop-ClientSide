@@ -13,15 +13,6 @@ const LoginWithGoogle: React.FunctionComponent = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const { user } = useSelector((state: RootState) => state.login)
-
-
-    useEffect(() => {
-        if (user !== null) {
-            navigate("/products")
-        }
-    }, [])
-
     const signInWithGoogleButton = () => {
         signInWithPopup(auth, providerGoogleAuth)
             .then((result) => {

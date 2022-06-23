@@ -33,11 +33,7 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
             signInWithEmailAndPassword(auth, username, pwd).then((userCredentials) => {
                 const userInfo = userCredentials.user
                 dispatch(loginInReducer(userInfo))
-                navigate("/products")
-
-                console.log(userInfo);
-                console.log(userCredentials);
-                
+                navigate("/products")  
                 
             })
             .catch((error) => {
