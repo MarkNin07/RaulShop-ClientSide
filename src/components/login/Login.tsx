@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebaseConfig';
 import { loginInReducer } from '../../state/slices/LoginSlice';
+import LoginWithGitHub from './LoginWithGitHub';
 import LoginWithGoogle from './LoginWithGoogle';
 
 interface ILoginProps {
@@ -68,6 +69,7 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
           </form>
           <button onClick={goToSignUp}>Sign up</button>
           <LoginWithGoogle/>
+          <LoginWithGitHub />
       </div>
   );
 };

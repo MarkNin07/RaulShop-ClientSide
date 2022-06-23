@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes, useNavigate } from 'react-router-dom'
 import BillsList from '../pages/bills/BillsList'
 import ProductsList from '../pages/product/ProductsList'
 import AddProvider from '../pages/stockist/AddProvider'
@@ -18,9 +18,11 @@ import { logoutInReducer } from '../state/slices/LoginSlice'
 const RoutesSite = () => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const logOut = () => {
     dispatch(logoutInReducer())
+    navigate('/')
   }
 
   return (
