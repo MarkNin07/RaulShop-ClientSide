@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import updateProduct from '../../actions/products/PutProduct';
 import { productType } from '../../state/slices/ProductSlice';
 import { useAppDispatch } from '../../state/store';
@@ -18,6 +18,8 @@ const EditProduct: React.FC<IEditProductProps> = (props) => {
     interface stateToEdit {
         updProd: productType
     }
+
+    const navigate = useNavigate()
 
     const location = useLocation()
     const localState= location.state as stateToEdit
@@ -61,6 +63,8 @@ const EditProduct: React.FC<IEditProductProps> = (props) => {
 
                 dispatch(createNewReceipt(receiptCreated))
             }
+            navigate('/products')
+   
         }else if(unitsAvailable + addStock > updProd.maxProdAmount){
             alert('You cannot add more stock to this product')
         }else{
@@ -73,9 +77,8 @@ const EditProduct: React.FC<IEditProductProps> = (props) => {
       <div>
           <form onSubmit={onEditProd}>
               <h1>Edit Product {updProd.productName}</h1>
-              <label>Update Description</label>
-              <input type="text" placeholder={updProd.description} onChange={(e) => 
-                setDescription(e.target.value)} />
+              <label>Description</label>
+              <input type="text" placeholder={updProd.description} value={updProd.description} readOnly />
               <br/>
 
               <label>Price</label>

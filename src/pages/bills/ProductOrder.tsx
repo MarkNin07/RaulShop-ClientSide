@@ -73,7 +73,9 @@ const ProductOrder = () => {
                 }
 
                 dispatch(updateProduct(productUpdated))
+
             })
+            
         }else{
             alert("All fields must be filled")
         }
