@@ -35,7 +35,7 @@ const RoutesSite = () => {
         <Link to="/order/product" className="link">Order</Link>
         <Link to="/bills" className="link">Bills</Link>
         <Link to="/receipts" className="link">Receipts</Link>
-        <Link to="/" onClick={logOut}>Log Out</Link>
+        <Link to="/" className="link" onClick={logOut}>Log Out</Link>
 
       </nav>
       <nav>

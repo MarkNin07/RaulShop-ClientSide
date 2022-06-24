@@ -52,19 +52,22 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
     }
 
   return (
-      <div>
+      <div className="login-form">
           <h1>Login to Raul's Hardware Shop</h1>
           <form>
-              <label>Username</label>
+              <label>Username:  </label>
               <input type="text" value={username} onChange={onChangeUsername}/>
               <br />
-              <label>Password</label>
+              <label>Password:  </label>
               <input type="password" value={pwd} onChange={onChangePwd}/>
-              <br />
+              <br /> <br />
               <button onClick={(e) => sendLogin(e)}>Login</button>
           </form>
+       
           <button onClick={goToSignUp}>Sign up</button>
+          
           <LoginWithGoogle/>
+        
           <LoginWithGitHub />
       </div>
   );

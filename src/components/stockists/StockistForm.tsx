@@ -44,18 +44,18 @@ const StockistForm: React.FC<IStockistFormProps> = (props) => {
   
 
   return (
-      <div>
+      <div className="form-created">
           <form onSubmit={addStockist}>
-              <label>Stockist Name</label>
+              <label>Stockist Name:  </label>
               <input type="text" value={stockistName} placeholder="Set Stockist Name" onChange={onChangeStockistName} />
               <br/>
-              <label>Stockist Personal Id</label>
+              <label>Stockist Personal Id:  </label>
               <input type="text" value={stockistPersonalId} placeholder="Set Stockist Personal ID" onChange={onChangePersonalID} />
               <br/>
-              <label>Phone Number</label>
+              <label>Phone Number:  </label>
               <input type="text" value={phoneNumber} placeholder="Set Stockist Phone Number" onChange={onChangePhoneNumber} />
               <br/>
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" id="submit"/>
           </form>
       </div>
   );

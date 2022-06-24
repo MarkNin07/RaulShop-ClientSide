@@ -74,7 +74,7 @@ const ProductForm: React.FC<IProductFormProps> = (props) => {
 
 
   return (
-      <div>
+      <div className="form-created">
           <form onSubmit={addProd}>
               <label>Product Name: </label>
               <input type="text" value={productName} onChange={onChangeProdName} />
@@ -103,8 +103,8 @@ const ProductForm: React.FC<IProductFormProps> = (props) => {
                    {getStockists.map((stockist) => 
                         <option key={stockist.stockistId} value={stockist.stockistId}>{stockist.stockistName}</option>)}
                </select>
-               <br/>
-               <input type="submit" value="Submit"/>
+               <br/> <br />
+               <input type="submit" id="submit" value="Submit"/>
           </form>
       </div>
   );

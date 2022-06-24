@@ -40,18 +40,18 @@ const SignIn: React.FunctionComponent<ISignInProps> = (props) => {
     }
 
   return (
-    <div>
-    <h1>Login to Raul's Hardware Shop</h1>
-    <form>
-        <label>Username</label>
-        <input type="text" value={username} onChange={onChangeUsername}/>
-        <br />
-        <label>Password</label>
-        <input type="password" value={pwd} onChange={onChangePwd}/>
-        <br />
-        <button onClick={(e) => sendSignUp(e)}>Login</button>
-    </form>
-</div>
+    <div className="login-form">
+        <h1>Login to Raul's Hardware Shop</h1>
+        <form>
+            <label>Username:  </label>
+            <input type="text" value={username} onChange={onChangeUsername}/>
+            <br /> <br />
+            <label>Password:  </label>
+            <input type="password" value={pwd} onChange={onChangePwd}/>
+            <br /> <br />
+            <button onClick={(e) => sendSignUp(e)}>Login</button>
+        </form>
+    </div>
   );
 };
 
